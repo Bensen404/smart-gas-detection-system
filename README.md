@@ -1,9 +1,32 @@
-# Smart Gas AI
+# Smart Gas Detection System — An Interdisciplinary AI/ML Project
 
 A compact, reproducible gas-level classifier for an **ESP32 + MQ-5** prototype.
 Raw 12-bit ADC readings are classified as **Normal**, **Warning** or **Danger**
 by a Gaussian Naive Bayes model that is trained in Python and exported as a
 header-only C implementation for the microcontroller.
+
+## Team Credits and Interdisciplinary Collaboration
+
+**Smart Gas AI — An Interdisciplinary AI/ML Project**
+
+Smart Gas AI is an interdisciplinary academic project integrating Artificial Intelligence and Machine Learning (AI/ML), chemical engineering concepts, electronics and communication systems, and computer science to develop an ESP32-based gas-sensor classification prototype.
+
+### Project Team
+
+| Team Member | Department |
+|---|---|
+| Amrutha S | Chemical Engineering |
+| Ann Treesa George | Electronics and Communication Engineering (ECE) |
+| Bensen Thomas | Computer Science and Engineering (CSE) |
+| Fiona Joby Varghese | Computer Science and Engineering (CSE) |
+
+### Interdisciplinary Collaboration
+
+The project combines expertise from multiple engineering disciplines to explore machine learning-based classification of MQ-5 gas-sensor readings. It incorporates AI/ML model development and evaluation, sensor interfacing, embedded systems programming, and the interpretation of gas-related sensor data.
+
+This collaboration demonstrates how different engineering disciplines can contribute to a common technological objective: developing and evaluating an intelligent gas-level classification prototype.
+
+**Note:** The system is an experimental academic prototype. Its dataset-based performance does not establish real-world gas-leak detection accuracy or certified safety performance.
 
 
 ## What this repository contains
