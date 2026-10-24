@@ -1,0 +1,52 @@
+{
+  "selection_rule": {
+    "primary": "highest mean leave-one-session-out CV macro-F1 on the training sessions",
+    "tie_break": "if within 0.001, choose the smallest serialized model",
+    "test_set_used_for_selection": false
+  },
+  "selected_candidate": "gaussian_nb_adc",
+  "family": "GaussianNB",
+  "features": [
+    "mq5_adc"
+  ],
+  "feature_order": [
+    "mq5_adc"
+  ],
+  "params": {},
+  "preprocessing": {
+    "type": "StandardScaler",
+    "fit_on": "training partition (inside every CV fold and for the final fit)"
+  },
+  "cv": {
+    "mean_macro_f1": 0.9497641772790758,
+    "std_macro_f1": 0.018092450824056496,
+    "mean_accuracy": 0.9499158249158249,
+    "std_accuracy": 0.018076720702583173,
+    "mean_log_loss": 0.14082467642856808,
+    "oof_macro_f1": 0.9497888039078548,
+    "oof_accuracy": 0.9499158249158249
+  },
+  "validation": {
+    "accuracy": 0.9511784511784511,
+    "macro_f1": 0.9511997724050043,
+    "balanced_accuracy": 0.9511784511784511,
+    "log_loss": 0.1366624532637916,
+    "danger_recall": 0.9393939393939394,
+    "fit_on": "12 training sessions only"
+  },
+  "final_fit": {
+    "fit_on": "12 training sessions + 3 validation sessions (15 sessions total)",
+    "n_rows": 2970,
+    "fit_seconds": 0.004798999998456566,
+    "artifact": "models/final_model.joblib"
+  },
+  "serialized_bytes_train_model": 885,
+  "n_train_rows": 2376,
+  "n_validation_rows": 594,
+  "class_order": [
+    "Normal",
+    "Warning",
+    "Danger"
+  ],
+  "random_seed": 42
+}

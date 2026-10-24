@@ -1,0 +1,36 @@
+{
+  "random_seed": 42,
+  "source_sha256": "82BFC7557E247D06E54C7B81AD5F2A9A294C5A44FD006274D451C6D99F1F01C7",
+  "split_sessions": {
+    "train": [
+      "ENC_04",
+      "ENC_05",
+      "ENC_06",
+      "ENC_07",
+      "ENC_08",
+      "ENC_10",
+      "ENC_11",
+      "ENC_12",
+      "ENC_14",
+      "ENC_16",
+      "ENC_17",
+      "ENC_18"
+    ],
+    "validation": [
+      "ENC_03",
+      "ENC_13",
+      "ENC_15"
+    ],
+    "test": [
+      "ENC_01",
+      "ENC_02",
+      "ENC_09"
+    ]
+  },
+  "rows": {
+    "train": 2376,
+    "validation": 594,
+    "test": 594
+  },
+  "no_session_overlap": true
+}

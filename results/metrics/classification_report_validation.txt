@@ -1,0 +1,19 @@
+========================================================================
+SMART GAS AI - VALIDATION SESSIONS (model fitted on 12 training sessions)
+========================================================================
+
+              precision    recall  f1-score   support
+
+      Normal     0.9700    0.9798    0.9749       198
+     Warning     0.9204    0.9343    0.9273       198
+      Danger     0.9637    0.9394    0.9514       198
+
+    accuracy                         0.9512       594
+   macro avg     0.9514    0.9512    0.9512       594
+weighted avg     0.9514    0.9512    0.9512       594
+
+Confusion matrix (rows = true, columns = predicted)
+                  Normal     Warning      Danger
+      Normal         194           4           0
+     Warning           6         185           7
+      Danger           0          12         186

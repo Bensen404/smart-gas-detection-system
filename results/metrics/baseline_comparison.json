@@ -1,0 +1,122 @@
+{
+  "method": "two ADC thresholds learned on the training split",
+  "thresholds": {
+    "normal_max": 1300.0,
+    "warning_max": 2200.0
+  },
+  "train_macro_f1": 0.9510268001774618,
+  "validation": {
+    "n": 594,
+    "accuracy": 0.9511784511784511,
+    "balanced_accuracy": 0.9511784511784511,
+    "macro_precision": 0.9513761932994784,
+    "macro_recall": 0.9511784511784512,
+    "macro_f1": 0.9511997724050043,
+    "weighted_f1": 0.9511997724050044,
+    "cohen_kappa": 0.9267676767676768,
+    "matthews_corrcoef": 0.9268425446366935,
+    "per_class": {
+      "Normal": {
+        "precision": 0.97,
+        "recall": 0.9797979797979798,
+        "f1": 0.9748743718592965,
+        "support": 198
+      },
+      "Warning": {
+        "precision": 0.9203980099502488,
+        "recall": 0.9343434343434344,
+        "f1": 0.9273182957393483,
+        "support": 198
+      },
+      "Danger": {
+        "precision": 0.9637305699481865,
+        "recall": 0.9393939393939394,
+        "f1": 0.9514066496163683,
+        "support": 198
+      }
+    },
+    "confusion_matrix": [
+      [
+        194,
+        4,
+        0
+      ],
+      [
+        6,
+        185,
+        7
+      ],
+      [
+        0,
+        12,
+        186
+      ]
+    ],
+    "labels": [
+      "Normal",
+      "Warning",
+      "Danger"
+    ],
+    "n_errors": 29
+  },
+  "test": {
+    "n": 594,
+    "accuracy": 0.9410774410774411,
+    "balanced_accuracy": 0.9410774410774412,
+    "macro_precision": 0.9410918535773911,
+    "macro_recall": 0.9410774410774411,
+    "macro_f1": 0.9408914935342737,
+    "weighted_f1": 0.9408914935342735,
+    "cohen_kappa": 0.9116161616161617,
+    "matthews_corrcoef": 0.9118061216307226,
+    "per_class": {
+      "Normal": {
+        "precision": 0.9368932038834952,
+        "recall": 0.9747474747474747,
+        "f1": 0.9554455445544554,
+        "support": 198
+      },
+      "Warning": {
+        "precision": 0.9222797927461139,
+        "recall": 0.898989898989899,
+        "f1": 0.9104859335038363,
+        "support": 198
+      },
+      "Danger": {
+        "precision": 0.9641025641025641,
+        "recall": 0.9494949494949495,
+        "f1": 0.9567430025445293,
+        "support": 198
+      }
+    },
+    "confusion_matrix": [
+      [
+        193,
+        5,
+        0
+      ],
+      [
+        13,
+        178,
+        7
+      ],
+      [
+        0,
+        10,
+        188
+      ]
+    ],
+    "labels": [
+      "Normal",
+      "Warning",
+      "Danger"
+    ],
+    "n_errors": 35
+  },
+  "mcnemar_test_vs_rule": {
+    "model_only_correct": 0,
+    "baseline_only_correct": 1,
+    "discordant_pairs": 1,
+    "exact_binomial_p": 1.0
+  }
+}

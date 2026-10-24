@@ -1,0 +1,93 @@
+{
+  "model_name": "Smart Gas AI MQ-5 classifier",
+  "version": "1.0.0",
+  "model_type": "Gaussian naive Bayes",
+  "selected_candidate": "gaussian_nb_adc",
+  "input_features": [
+    "mq5_adc"
+  ],
+  "input_domain": "raw 12-bit ADC counts, 0..4095",
+  "output_classes": [
+    "Normal",
+    "Warning",
+    "Danger"
+  ],
+  "training_data": {
+    "path": "data/raw/smart_gas_ai_enclosed_synthetic_dataset.csv",
+    "sha256": "82BFC7557E247D06E54C7B81AD5F2A9A294C5A44FD006274D451C6D99F1F01C7",
+    "rows": 3564,
+    "sessions": 18,
+    "nature": "supplied synthetic/enclosed dataset",
+    "train_sessions": [
+      "ENC_04",
+      "ENC_05",
+      "ENC_06",
+      "ENC_07",
+      "ENC_08",
+      "ENC_10",
+      "ENC_11",
+      "ENC_12",
+      "ENC_14",
+      "ENC_16",
+      "ENC_17",
+      "ENC_18"
+    ],
+    "validation_sessions": [
+      "ENC_03",
+      "ENC_13",
+      "ENC_15"
+    ],
+    "test_sessions": [
+      "ENC_01",
+      "ENC_02",
+      "ENC_09"
+    ]
+  },
+  "evaluation": {
+    "protocol": "leave-one-session-out CV on training sessions; grouped validation; one-time grouped test",
+    "cv_macro_f1": 0.9497641772790758,
+    "validation_macro_f1": 0.9511997724050043,
+    "test_accuracy": 0.9393939393939394,
+    "test_macro_f1": 0.9392532886218468,
+    "test_danger_recall": 0.9494949494949495,
+    "test_log_loss": 0.14843612171629703,
+    "test_rows": 594,
+    "test_sessions": [
+      "ENC_01",
+      "ENC_02",
+      "ENC_09"
+    ]
+  },
+  "intended_use": [
+    "educational and research prototyping of an MQ-5 gas-level classifier",
+    "offline benchmarking of a compact classifier on the supplied dataset",
+    "host-side reference implementation for embedded integration"
+  ],
+  "not_intended_for": [
+    "life-safety, fire, toxic-gas or explosion protection",
+    "regulatory or certified gas detection",
+    "direct deployment on real hardware without sensor calibration and field validation",
+    "inferring temperature or humidity (the model does not use them)"
+  ],
+  "limitations": [
+    "Synthetic data; no real MQ-5 noise, drift, ageing or gas mixtures.",
+    "Adjacent classes overlap in ADC space; errors occur near boundaries.",
+    "Only three held-out sessions; session-to-session uncertainty is coarse.",
+    "Probabilities are not calibrated on real data.",
+    "ESP32 compatibility has been assessed only by host compilation and parity testing.",
+    "No on-device latency, flash, RAM or thermal measurement has been performed."
+  ],
+  "deployment_status": {
+    "ready_for_esp32_deployment": false,
+    "reason": "Host-verified C export only; no ESP32 cross-compilation, on-device test or real-sensor validation.",
+    "required_before_deployment": [
+      "cross-compile for the target ESP32 toolchain",
+      "measure on-device latency, flash and RAM",
+      "calibrate the MQ-5 ADC path and warm-up behaviour",
+      "collect labelled real-sensor data across sessions and environments",
+      "re-evaluate with session-grouped or time-based splits",
+      "define and test fail-safe alarm behaviour independent of the ML model"
+    ]
+  },
+  "generated_utc": "2026-10-24T10:45:02.841931+00:00"
+}

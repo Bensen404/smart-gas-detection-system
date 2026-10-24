@@ -1,0 +1,138 @@
+{
+  "model_name": "Smart Gas AI MQ-5 classifier",
+  "version": "1.0.0",
+  "type": "Gaussian naive Bayes",
+  "selected_candidate": "gaussian_nb_adc",
+  "feature_order": [
+    "mq5_adc"
+  ],
+  "input_units": "raw 12-bit ADC counts (0..4095)",
+  "output_classes": [
+    "Normal",
+    "Warning",
+    "Danger"
+  ],
+  "class_indices": {
+    "Normal": 0,
+    "Warning": 1,
+    "Danger": 2
+  },
+  "preprocessing": {
+    "type": "StandardScaler",
+    "mean": [
+      1794.6434326171875
+    ],
+    "scale": [
+      776.3956909179688
+    ],
+    "equation": "z = (mq5_adc - mean) / scale"
+  },
+  "decision_rule": "logit_c = log(prior_c) - 0.5*log(2*pi*var_c) - 0.5*((z - theta_c)^2 / var_c)",
+  "softmax": "p_c = exp(logit_c - max(logits)) / sum_j exp(logit_j - max(logits))",
+  "parameters": {
+    "theta_float32": [
+      -1.129125952720642,
+      -0.04450245574116707,
+      1.173628330230713
+    ],
+    "variance_float32": [
+      0.0589587427675724,
+      0.11252830177545547,
+      0.1742035299539566
+    ],
+    "inverse_variance_float32": [
+      16.961013793945312,
+      8.886652946472168,
+      5.740411758422852
+    ],
+    "log_constant_float32": [
+      -0.6020920872688293,
+      -0.9252755045890808,
+      -1.1437853574752808
+    ],
+    "class_prior_float32": [
+      0.3333333432674408,
+      0.3333333432674408,
+      0.3333333432674408
+    ]
+  },
+  "constant_parameter_bytes": 56,
+  "training": {
+    "dataset": "data/raw/smart_gas_ai_enclosed_synthetic_dataset.csv",
+    "dataset_sha256": "82BFC7557E247D06E54C7B81AD5F2A9A294C5A44FD006274D451C6D99F1F01C7",
+    "train_sessions": [
+      "ENC_04",
+      "ENC_05",
+      "ENC_06",
+      "ENC_07",
+      "ENC_08",
+      "ENC_10",
+      "ENC_11",
+      "ENC_12",
+      "ENC_14",
+      "ENC_16",
+      "ENC_17",
+      "ENC_18"
+    ],
+    "validation_sessions": [
+      "ENC_03",
+      "ENC_13",
+      "ENC_15"
+    ],
+    "test_sessions": [
+      "ENC_01",
+      "ENC_02",
+      "ENC_09"
+    ],
+    "fit_sessions_final": [
+      "ENC_04",
+      "ENC_05",
+      "ENC_06",
+      "ENC_07",
+      "ENC_08",
+      "ENC_10",
+      "ENC_11",
+      "ENC_12",
+      "ENC_14",
+      "ENC_16",
+      "ENC_17",
+      "ENC_18",
+      "ENC_03",
+      "ENC_13",
+      "ENC_15"
+    ],
+    "n_fit_rows": 2970,
+    "random_seed": 42
+  },
+  "evaluation": {
+    "test_accuracy": 0.9393939393939394,
+    "test_macro_f1": 0.9392532886218468,
+    "test_danger_recall": 0.9494949494949495,
+    "test_log_loss": 0.14843612171629703,
+    "test_rows": 594,
+    "test_sessions": [
+      "ENC_01",
+      "ENC_02",
+      "ENC_09"
+    ]
+  },
+  "verification": {
+    "host_c_compile": true,
+    "host_python_c_parity": {
+      "status": "PASS",
+      "cases": 165,
+      "class_matches": 165,
+      "max_probability_abs_diff": 2.38e-07,
+      "failures": 0,
+      "tolerance": 0.0001,
+      "compiler": "gcc.exe (MinGW.org GCC-6.3.0-1) 6.3.0",
+      "compile_command": "gcc -O2 -std=c11 -Wall -Wextra -Ifirmware/esp32_gas_detection parity_test.c -o parity_test.exe -lm"
+    },
+    "esp32_cross_compile": false,
+    "esp32_on_device_test": false,
+    "real_sensor_validation": false
+  },
+  "source_artifact": "models/final_model.joblib",
+  "c_header": "firmware/esp32_gas_detection/gas_model.h",
+  "generated_utc": "2026-10-24T10:45:02.841268+00:00"
+}

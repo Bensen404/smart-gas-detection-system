@@ -1,0 +1,60 @@
+==============================================================================
+SMART GAS AI - DATASET PREPARATION AND INTEGRITY REPORT
+==============================================================================
+
+Source dataset : data/raw/smart_gas_ai_enclosed_synthetic_dataset.csv
+SHA-256        : 82BFC7557E247D06E54C7B81AD5F2A9A294C5A44FD006274D451C6D99F1F01C7
+Size           : 105,633 bytes
+Shape          : 3,564 rows x 5 columns
+Sessions       : 18
+
+[1] Column contract
+    Required columns present: session_id, mq5_adc, temperature_c, humidity_rh_pct, label
+    String columns stripped : none needed
+
+[2] Data quality
+    Missing cells            : 0
+    Exact duplicate rows     : 0
+    Duplicate feature rows   : 0
+    Conflicting-label groups : 0
+    Rows removed             : 0
+    Rows imputed             : 0
+    Labels changed           : 0
+
+[3] Class distribution (full dataset)
+    Normal      1188 rows (33.33%)
+    Warning     1188 rows (33.33%)
+    Danger      1188 rows (33.33%)
+
+[4] Session-grouped split
+    Random seed: 42
+    Test sessions       : ENC_01, ENC_02, ENC_09
+    Validation sessions : ENC_03, ENC_13, ENC_15
+    Training sessions   : ENC_04, ENC_05, ENC_06, ENC_07, ENC_08, ENC_10, ENC_11, ENC_12, ENC_14, ENC_16, ENC_17, ENC_18
+
+    Split         Rows  Sessions  Class counts
+    train         2376        12  Normal=792, Warning=792, Danger=792
+    validation     594         3  Normal=198, Warning=198, Danger=198
+    test           594         3  Normal=198, Warning=198, Danger=198
+
+[5] Feature ranges
+    Feature                    Min       Max        Mean         Std
+    mq5_adc                 197.00   3602.00     1793.84      778.02
+    temperature_c            15.00     44.70       27.50        6.28
+    humidity_rh_pct          15.00     95.00       54.48       18.48
+
+[6] Model input contract
+    Model features: mq5_adc
+    Note: The classifier consumes mq5_adc only. temperature_c and humidity_rh_pct are retained in the dataset for context and analysis.
+
+[7] Outputs
+    data/processed/train.csv
+    data/processed/validation.csv
+    data/processed/test.csv
+    data/processed/split_manifest.json
+    data/processed/metadata.json
+
+[8] Integrity
+    The raw CSV was opened read-only and was not modified.
+    SHA-256 after preparation: 82BFC7557E247D06E54C7B81AD5F2A9A294C5A44FD006274D451C6D99F1F01C7
+    Integrity re-check: PASS

@@ -1,0 +1,147 @@
+{
+  "random_seed": 42,
+  "cv": "LeaveOneGroupOut on session_id (12 folds)",
+  "candidates": [
+    {
+      "name": "dummy_most_frequent",
+      "family": "DummyClassifier",
+      "features": [
+        "mq5_adc"
+      ],
+      "params": {
+        "strategy": "most_frequent"
+      },
+      "embedded_suitability": "n/a (baseline)"
+    },
+    {
+      "name": "logreg_adc",
+      "family": "LogisticRegression",
+      "features": [
+        "mq5_adc"
+      ],
+      "params": {
+        "C": 1.0,
+        "penalty": "l2",
+        "solver": "lbfgs",
+        "max_iter": 3000,
+        "class_weight": null,
+        "random_state": 42
+      },
+      "embedded_suitability": "high"
+    },
+    {
+      "name": "logreg_all_features",
+      "family": "LogisticRegression",
+      "features": [
+        "mq5_adc",
+        "temperature_c",
+        "humidity_rh_pct"
+      ],
+      "params": {
+        "C": 1.0,
+        "penalty": "l2",
+        "solver": "lbfgs",
+        "max_iter": 3000,
+        "class_weight": null,
+        "random_state": 42
+      },
+      "embedded_suitability": "high"
+    },
+    {
+      "name": "decision_tree_depth3_adc",
+      "family": "DecisionTreeClassifier",
+      "features": [
+        "mq5_adc"
+      ],
+      "params": {
+        "max_depth": 3,
+        "random_state": 42
+      },
+      "embedded_suitability": "high"
+    },
+    {
+      "name": "random_forest_200_adc",
+      "family": "RandomForestClassifier",
+      "features": [
+        "mq5_adc"
+      ],
+      "params": {
+        "n_estimators": 200,
+        "max_depth": 8,
+        "random_state": 42,
+        "n_jobs": -1
+      },
+      "embedded_suitability": "low"
+    },
+    {
+      "name": "extra_trees_200_adc",
+      "family": "ExtraTreesClassifier",
+      "features": [
+        "mq5_adc"
+      ],
+      "params": {
+        "n_estimators": 200,
+        "max_depth": 8,
+        "random_state": 42,
+        "n_jobs": -1
+      },
+      "embedded_suitability": "low"
+    },
+    {
+      "name": "gaussian_nb_adc",
+      "family": "GaussianNB",
+      "features": [
+        "mq5_adc"
+      ],
+      "params": {},
+      "embedded_suitability": "high"
+    },
+    {
+      "name": "qda_adc",
+      "family": "QuadraticDiscriminantAnalysis",
+      "features": [
+        "mq5_adc"
+      ],
+      "params": {},
+      "embedded_suitability": "medium"
+    },
+    {
+      "name": "svc_rbf_adc",
+      "family": "SVC",
+      "features": [
+        "mq5_adc"
+      ],
+      "params": {
+        "C": 1.0,
+        "kernel": "rbf",
+        "gamma": "scale",
+        "probability": true,
+        "random_state": 42
+      },
+      "embedded_suitability": "low"
+    },
+    {
+      "name": "knn15_adc",
+      "family": "KNeighborsClassifier",
+      "features": [
+        "mq5_adc"
+      ],
+      "params": {
+        "n_neighbors": 15,
+        "weights": "uniform"
+      },
+      "embedded_suitability": "low"
+    },
+    {
+      "name": "hist_gradient_boosting_adc",
+      "family": "HistGradientBoostingClassifier",
+      "features": [
+        "mq5_adc"
+      ],
+      "params": {
+        "random_state": 42
+      },
+      "embedded_suitability": "low"
+    }
+  ]
+}

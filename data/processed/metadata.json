@@ -1,0 +1,236 @@
+{
+  "project": "Smart Gas AI",
+  "source_dataset": "data/raw/smart_gas_ai_enclosed_synthetic_dataset.csv",
+  "source_sha256": "82BFC7557E247D06E54C7B81AD5F2A9A294C5A44FD006274D451C6D99F1F01C7",
+  "source_size_bytes": 105633,
+  "original_preserved": true,
+  "rows_total": 3564,
+  "columns": [
+    "session_id",
+    "mq5_adc",
+    "temperature_c",
+    "humidity_rh_pct",
+    "label"
+  ],
+  "feature_columns_all": [
+    "mq5_adc",
+    "temperature_c",
+    "humidity_rh_pct"
+  ],
+  "model_features": [
+    "mq5_adc"
+  ],
+  "target_column": "label",
+  "session_column": "session_id",
+  "class_order": [
+    "Normal",
+    "Warning",
+    "Danger"
+  ],
+  "random_seed": 42,
+  "split_protocol": {
+    "method": "GroupShuffleSplit on session_id, applied twice",
+    "test_session_fraction": 0.16666666666666666,
+    "validation_session_fraction_of_remaining": 0.2,
+    "description": "3 of 18 sessions are held out as test; 3 of the remaining 15 sessions are held out as validation; the other 12 sessions form the training split. No session appears in two splits."
+  },
+  "split_sessions": {
+    "train": [
+      "ENC_04",
+      "ENC_05",
+      "ENC_06",
+      "ENC_07",
+      "ENC_08",
+      "ENC_10",
+      "ENC_11",
+      "ENC_12",
+      "ENC_14",
+      "ENC_16",
+      "ENC_17",
+      "ENC_18"
+    ],
+    "validation": [
+      "ENC_03",
+      "ENC_13",
+      "ENC_15"
+    ],
+    "test": [
+      "ENC_01",
+      "ENC_02",
+      "ENC_09"
+    ]
+  },
+  "split_profile": {
+    "train": {
+      "n_rows": 2376,
+      "n_sessions": 12,
+      "sessions": [
+        "ENC_04",
+        "ENC_05",
+        "ENC_06",
+        "ENC_07",
+        "ENC_08",
+        "ENC_10",
+        "ENC_11",
+        "ENC_12",
+        "ENC_14",
+        "ENC_16",
+        "ENC_17",
+        "ENC_18"
+      ],
+      "class_counts": {
+        "Normal": 792,
+        "Warning": 792,
+        "Danger": 792
+      },
+      "class_pct": {
+        "Normal": 33.3333,
+        "Warning": 33.3333,
+        "Danger": 33.3333
+      },
+      "mq5_adc": {
+        "min": 284.0,
+        "max": 3602.0,
+        "mean": 1798.7912457912457,
+        "std": 775.4836661099521
+      }
+    },
+    "validation": {
+      "n_rows": 594,
+      "n_sessions": 3,
+      "sessions": [
+        "ENC_03",
+        "ENC_13",
+        "ENC_15"
+      ],
+      "class_counts": {
+        "Normal": 198,
+        "Warning": 198,
+        "Danger": 198
+      },
+      "class_pct": {
+        "Normal": 33.3333,
+        "Warning": 33.3333,
+        "Danger": 33.3333
+      },
+      "mq5_adc": {
+        "min": 197.0,
+        "max": 3538.0,
+        "mean": 1778.0521885521885,
+        "std": 781.1190931887003
+      }
+    },
+    "test": {
+      "n_rows": 594,
+      "n_sessions": 3,
+      "sessions": [
+        "ENC_01",
+        "ENC_02",
+        "ENC_09"
+      ],
+      "class_counts": {
+        "Normal": 198,
+        "Warning": 198,
+        "Danger": 198
+      },
+      "class_pct": {
+        "Normal": 33.3333,
+        "Warning": 33.3333,
+        "Danger": 33.3333
+      },
+      "mq5_adc": {
+        "min": 237.0,
+        "max": 3600.0,
+        "mean": 1789.8232323232323,
+        "std": 786.0694892232362
+      }
+    }
+  },
+  "dataset_profile": {
+    "shape": [
+      3564,
+      5
+    ],
+    "columns": [
+      "session_id",
+      "mq5_adc",
+      "temperature_c",
+      "humidity_rh_pct",
+      "label"
+    ],
+    "dtypes": {
+      "session_id": "string",
+      "mq5_adc": "int64",
+      "temperature_c": "float64",
+      "humidity_rh_pct": "float64",
+      "label": "string"
+    },
+    "missing_values": {
+      "session_id": 0,
+      "mq5_adc": 0,
+      "temperature_c": 0,
+      "humidity_rh_pct": 0,
+      "label": 0
+    },
+    "exact_duplicate_rows": 0,
+    "duplicate_feature_rows": 0,
+    "n_sessions": 18,
+    "class_counts": {
+      "Normal": 1188,
+      "Warning": 1188,
+      "Danger": 1188
+    },
+    "descriptive_statistics": {
+      "mq5_adc": {
+        "count": 3564.0,
+        "mean": 1793.8400673400674,
+        "std": 778.0161297726851,
+        "min": 197.0,
+        "25%": 1044.75,
+        "50%": 1758.0,
+        "75%": 2481.0,
+        "max": 3602.0
+      },
+      "temperature_c": {
+        "count": 3564.0,
+        "mean": 27.50462962962963,
+        "std": 6.282298383182137,
+        "min": 15.0,
+        "25%": 23.4,
+        "50%": 26.4,
+        "75%": 31.1,
+        "max": 44.7
+      },
+      "humidity_rh_pct": {
+        "count": 3564.0,
+        "mean": 54.47718855218856,
+        "std": 18.475477868429376,
+        "min": 15.0,
+        "25%": 39.7,
+        "50%": 51.1,
+        "75%": 69.4,
+        "max": 95.0
+      }
+    }
+  },
+  "cleaning": {
+    "rows_removed": 0,
+    "rows_imputed": 0,
+    "labels_changed": 0,
+    "duplicates_removed": 0,
+    "string_columns_stripped": [],
+    "note": "The supplied CSV was already complete, balanced and internally consistent. It was validated rather than cleaned."
+  },
+  "environment": {
+    "python": "3.14.4",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "processor": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel",
+    "pandas": "3.0.6",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "scikit_learn": "1.9.1",
+    "matplotlib": "3.11.2",
+    "seaborn": "0.13.2",
+    "joblib": "1.6.0"
+  }
+}
